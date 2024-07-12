@@ -1,0 +1,12 @@
+.category{
+   display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.category .item{
+    padding: 10px;
+    margin: 10px;
+    background-color: rgb(231, 231, 231);
+    border-radius: 10px;
+    font-weight: 600;
+}
