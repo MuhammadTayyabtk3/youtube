@@ -3,10 +3,11 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { CardActionArea } from '@mui/material';
-// import { Card } from '../data/Carddata';
+import { Box, CardActionArea } from '@mui/material';
+import Avatar from '@mui/material/Avatar';
+import "../Styling/card.css"
 
-export default function Cards({image,title,authorname,view,timestamp}) {
+export default function Cards({avatar,image,title,authorname,view,timestamp}) {
   return (
     <Card sx={{ maxWidth: 345, m:3 ,}}>
       <CardActionArea>
@@ -17,9 +18,14 @@ export default function Cards({image,title,authorname,view,timestamp}) {
           alt={image}
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
+          <div className='avatar'>
+        <Avatar aria-label="recipe">
+            {avatar}
+          </Avatar>
+          <Typography gutterBottom variant="h5" sx={{marginLeft:"10px",marginBottom:"0px"}}>
             {title}
           </Typography>
+          </div>
           <Typography variant="body2" color="text.secondary">
           {authorname}
           </Typography>

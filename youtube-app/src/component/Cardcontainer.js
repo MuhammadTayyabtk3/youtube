@@ -14,6 +14,7 @@ const Cardcontainer = () => {
           authorname={items.authorname}
           timestamp={items.timestamp}
           view={items.view}
+          avatar={items.avatar}
         />
         </div>
       ))}
