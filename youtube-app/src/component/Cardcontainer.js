@@ -1,37 +1,37 @@
 import React, { useState } from "react";
 import Cards from "./Cards";
 import { Carddata } from "../data/Carddata";
-import '../Styling/card.css'
+import '../Styling/card.css';
 
-const Cardcontainer = () => {
+const CardContainer = () => {
   const [cards, setCards] = useState(Carddata);
 
-  const handleEditCard = (key, newTitle) => {
-    setCards(cards.map(card => card.key === key ? { ...card, title: newTitle } : card));
+  const handleEditCard = (key, updatedCard) => {
+    setCards(cards.map(card => card.key === key ? { ...card, ...updatedCard } : card));
   };
 
   const handleDeleteCard = (key) => {
     setCards(cards.filter(card => card.key !== key));
   };
+
   return (
     <div className="cards">
-      {cards.map((items) => (
-        <div>
+      {cards.map((card) => (
         <Cards
-          image={items.image}
-          title={items.title}
-          authorname={items.authorname}
-          timestamp={items.timestamp}
-          view={items.view}
-          avatar={items.avatar}
-          uniquekey={items.key}
-          onEditCard={handleEditCard} 
-        onDeleteCard={handleDeleteCard} 
+          key={card.key}
+          uniquekey={card.key}
+          avatar={card.avatar}
+          image={card.image}
+          title={card.title}
+          authorname={card.authorname}
+          timestamp={card.timestamp}
+          view={card.view}
+          onEditCard={handleEditCard}
+          onDeleteCard={handleDeleteCard}
         />
-        </div>
       ))}
     </div>
   );
 };
 
-export default Cardcontainer;
+export default CardContainer;

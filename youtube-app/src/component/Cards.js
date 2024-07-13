@@ -1,62 +1,144 @@
-import React, { useState } from 'react';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import {Button, CardActionArea } from '@mui/material';
-import Avatar from '@mui/material/Avatar';
-import "../Styling/card.css"
-import EditIcon from '@mui/icons-material/Edit';
-import DeleteIcon from '@mui/icons-material/Delete';
-import { Carddata } from '../data/Carddata';
+import React, { useState } from "react";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Typography from "@mui/material/Typography";
+import {
+  Button,
+  CardActionArea,
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  TextField,
+  DialogActions,
+} from "@mui/material";
+import Avatar from "@mui/material/Avatar";
+import "../Styling/card.css";
+import EditIcon from "@mui/icons-material/Edit";
+import DeleteIcon from "@mui/icons-material/Delete";
 
-export default function Cards({uniquekey,avatar,image,title,authorname,view,timestamp,onEditCard, onDeleteCard }) {
+export default function Cards({
+  uniquekey,
+  avatar,
+  image,
+  title,
+  authorname,
+  view,
+  timestamp,
+  onEditCard,
+  onDeleteCard,
+}) {
+  const [open, setOpen] = useState(false);
+  const [currentCard, setCurrentCard] = useState({
+    key: uniquekey,
+    avatar,
+    image,
+    title,
+    authorname,
+    view,
+    timestamp,
+  });
 
-  const handleEdit = (key) => {
-    const newTitle = prompt("Enter new title");
-    if (newTitle) {
-      onEditCard(key, newTitle);
-    }
+  const handleEdit = () => {
+    setOpen(true);
   };
 
-  const handleDelete = (key) => {
-    onDeleteCard(key);
+  const handleDelete = () => {
+    onDeleteCard(uniquekey);
+  };
+
+  const handleSave = () => {
+    onEditCard(currentCard.key, currentCard);
+    setOpen(false);
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setCurrentCard({ ...currentCard, [name]: value });
   };
 
   return (
-    
-    <Card sx={{ maxWidth: 345, m:3 ,}}>
-      <CardActionArea>
-        <CardMedia
-          component="img"
-          height="140"
-          image={image}
-          alt={image}
-        />
+    <>
+      <Card sx={{ maxWidth: 345, m: 3 }}>
+        <CardActionArea>
+          <CardMedia component="img" height="140" image={image} alt={image} />
         </CardActionArea>
         <CardContent>
-          <div className='avatar'>
-        <Avatar aria-label="recipe">
-            {avatar}
-          </Avatar>
-          <Typography gutterBottom variant="h5" sx={{marginLeft:"10px",marginBottom:"0px"}}>
-            {title}
-          </Typography>
-          <Button onClick={() => handleEdit(uniquekey)}>
-            <EditIcon />
-          </Button>
-          <Button onClick={() => handleDelete(uniquekey)}>
-            <DeleteIcon sx={{ color: 'red' }} />
-          </Button>
+          <div className="avatar">
+            <Avatar aria-label="recipe">{avatar}</Avatar>
+            <Typography
+              gutterBottom
+              variant="h5"
+              sx={{ marginLeft: "10px", marginBottom: "0px" }}
+            >
+              {title}
+            </Typography>
+            <Button onClick={handleEdit}>
+              <EditIcon />
+            </Button>
+            <Button onClick={handleDelete}>
+              <DeleteIcon sx={{ color: "red" }} />
+            </Button>
           </div>
           <Typography variant="body2" color="text.secondary">
-          {authorname}
+            {authorname}
           </Typography>
           <Typography variant="body2" color="text.secondary">
             {view} views <sup>.</sup> {timestamp} ago
           </Typography>
         </CardContent>
-      
-    </Card>
+      </Card>
+
+      <Dialog open={open} onClose={() => setOpen(false)}>
+        <DialogTitle>Edit Card</DialogTitle>
+        <DialogContent>
+          <TextField
+            autoFocus
+            margin="dense"
+            name="title"
+            label="Title"
+            type="text"
+            fullWidth
+            value={currentCard.title}
+            onChange={handleChange}
+          />
+          <TextField
+            margin="dense"
+            name="authorname"
+            label="Author Name"
+            type="text"
+            fullWidth
+            value={currentCard.authorname}
+            onChange={handleChange}
+          />
+          <TextField
+            margin="dense"
+            name="view"
+            label="Views"
+            type="number"
+            fullWidth
+            value={currentCard.view}
+            onChange={handleChange}
+          />
+          <TextField
+            margin="dense"
+            name="timestamp"
+            label="Timestamp"
+            type="text"
+            fullWidth
+            value={currentCard.timestamp}
+            onChange={handleChange}
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => setOpen(false)} color="primary">
+            Cancel
+          </Button>
+          <Button onClick={handleSave} color="primary">
+            Save
+          </Button>
+        </DialogActions>
+      </Dialog>
+    </>
   );
 }
