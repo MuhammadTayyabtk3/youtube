@@ -13,7 +13,7 @@ export const Carddata = [
        authorname: "Author Name 2",
        view: "1500",
        timestamp: "2023-07-11T10:30:00.000Z",
-       avatar:"A"
+       avatar:"l"
    },
    { 
        image: "https://placehold.co/600x400",
@@ -21,7 +21,7 @@ export const Carddata = [
        authorname: "Author Name 3",
        view: "2000",
        timestamp: "2023-07-10T08:15:00.000Z",
-       avatar:"A"
+       avatar:"y"
    },
    { 
        image: "https://placehold.co/600x400",
@@ -29,7 +29,7 @@ export const Carddata = [
        authorname: "Author Name 4",
        view: "2500",
        timestamp: "2023-07-09T13:20:00.000Z",
-       avatar:"A"
+       avatar:"Q"
    },
    { 
        image: "https://placehold.co/600x400",
@@ -37,7 +37,7 @@ export const Carddata = [
        authorname: "Author Name 5",
        view: "3000",
        timestamp: "2023-07-08T16:45:00.000Z",
-       avatar:"A"
+       avatar:"B"
    },
    { 
        image: "https://placehold.co/600x400",
@@ -45,7 +45,7 @@ export const Carddata = [
        authorname: "Author Name 6",
        view: "3500",
        timestamp: "2023-07-07T11:10:00.000Z",
-       avatar:"A"
+       avatar:"S"
    },
    { 
        image: "https://placehold.co/600x400",
@@ -53,7 +53,7 @@ export const Carddata = [
        authorname: "Author Name 7",
        view: "4000",
        timestamp: "2023-07-06T17:50:00.000Z",
-       avatar:"A"
+       avatar:"G"
    },
    { 
        image: "https://placehold.co/600x400",
@@ -61,7 +61,7 @@ export const Carddata = [
        authorname: "Author Name 8",
        view: "4500",
        timestamp: "2023-07-05T12:35:00.000Z",
-       avatar:"A"
+       avatar:"D"
    },
    { 
        image: "https://placehold.co/600x400",
@@ -69,7 +69,7 @@ export const Carddata = [
        authorname: "Author Name 9",
        view: "5000",
        timestamp: "2023-07-04T19:25:00.000Z",
-       avatar:"A"
+       avatar:"C"
    },
    { 
        image: "https://placehold.co/600x400",
@@ -77,6 +77,6 @@ export const Carddata = [
        authorname: "Author Name 10",
        view: "5500",
        timestamp: "2023-07-03T15:40:00.000Z",
-       avatar:"A"
+       avatar:"Z"
    }
 ];
