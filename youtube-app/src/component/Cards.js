@@ -11,6 +11,7 @@ import {
   DialogTitle,
   TextField,
   DialogActions,
+  Box,
 } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
 import "../Styling/card.css";
@@ -64,22 +65,22 @@ export default function Cards({
           <CardMedia component="img" height="140" image={image} alt={image} />
         </CardActionArea>
         <CardContent>
-          <div className="avatar">
-            <Avatar aria-label="recipe">{avatar}</Avatar>
-            <Typography
-              gutterBottom
-              variant="h5"
-              sx={{ marginLeft: "10px", marginBottom: "0px" }}
-            >
-              {title}
-            </Typography>
-            <Button onClick={handleEdit}>
-              <EditIcon />
-            </Button>
-            <Button onClick={handleDelete}>
-              <DeleteIcon sx={{ color: "red" }} />
-            </Button>
-          </div>
+          <Box display="flex" alignItems="center" justifyContent="space-between">
+              <Avatar aria-label="recipe">{avatar}</Avatar>
+              <Typography
+                gutterBottom
+                variant="h5"
+                sx={{ m:0 }}
+              >
+                {title}
+              </Typography>
+              <Button onClick={handleEdit}>
+                <EditIcon />
+              </Button>
+              <Button onClick={handleDelete}>
+                <DeleteIcon sx={{ color: "red" }} />
+              </Button>
+          </Box>
           <Typography variant="body2" color="text.secondary">
             {authorname}
           </Typography>
@@ -92,6 +93,15 @@ export default function Cards({
       <Dialog open={open} onClose={() => setOpen(false)}>
         <DialogTitle>Edit Card</DialogTitle>
         <DialogContent>
+          <TextField
+            margin="dense"
+            name="avatar"
+            label="Avatar"
+            type="text"
+            fullWidth
+            value={currentCard.avatar}
+            onChange={handleChange}
+          />
           <TextField
             autoFocus
             margin="dense"
@@ -109,6 +119,15 @@ export default function Cards({
             type="text"
             fullWidth
             value={currentCard.authorname}
+            onChange={handleChange}
+          />
+          <TextField
+            margin="dense"
+            name="image"
+            label="Image"
+            type="url"
+            fullWidth
+            value={currentCard.image}
             onChange={handleChange}
           />
           <TextField
