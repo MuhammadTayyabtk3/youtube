@@ -1,12 +1,20 @@
-.category{
-   display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.category .item{
-    padding: 10px;
-    margin: 10px;
-    background-color: rgb(231, 231, 231);
-    border-radius: 10px;
-    font-weight: 600;
-}
+/* Catagory.css */
+.category {
+    display: flex;
+    overflow-x: auto; /* Enables horizontal scrolling */
+    white-space: nowrap; /* Prevents items from wrapping to the next line */
+    padding: 16px;
+  }
+  
+  .item {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: 8px;
+    padding: 16px;
+    text-align: center;
+    flex: 0 0 auto; /* Prevents items from shrinking or growing */
+    width: 150px; /* Fixed width for each item */
+    display: inline-block; /* Ensures items are displayed inline for scrolling */
+  }
+  

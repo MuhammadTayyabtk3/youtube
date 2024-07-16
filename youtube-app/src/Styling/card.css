@@ -1,12 +1,23 @@
-.cards{
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-}
-
-/* .avatar{
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-} */
+/* card.css */
+.card {
+    margin: 16px;
+  }
+  
+  @media (max-width: 600px) {
+    .card {
+      width: 100%;
+    }
+  }
+  
+  @media (min-width: 601px) and (max-width: 1199px) {
+    .card {
+      width: 48%;
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .card {
+      width: 30%;
+    }
+  }
+  

@@ -2,7 +2,16 @@ import React, { useState } from "react";
 import Cards from "./Cards";
 import { Carddata } from "../data/Carddata";
 import "../Styling/card.css";
-import { Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField, Grid, Box } from "@mui/material";
+import {
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+  TextField,
+  Grid,
+  Box,
+} from "@mui/material";
 
 const CardContainer = () => {
   const [cards, setCards] = useState(Carddata);

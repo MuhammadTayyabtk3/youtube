@@ -14,9 +14,9 @@ import {
   Box,
 } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
-import "../Styling/card.css";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
+import "../Styling/card.css";
 
 export default function Cards({
   uniquekey,
@@ -60,32 +60,28 @@ export default function Cards({
 
   return (
     <>
-      <Card sx={{ maxWidth: 345, m: 3 }}>
+      <Card sx={{ maxWidth: 345, margin: "16px auto", width: "100%" }}>
         <CardActionArea>
           <CardMedia component="img" height="140" image={image} alt={image} />
         </CardActionArea>
         <CardContent>
           <Box display="flex" alignItems="center" justifyContent="space-between">
-              <Avatar aria-label="recipe">{avatar}</Avatar>
-              <Typography
-                gutterBottom
-                variant="h5"
-                sx={{ m:0 }}
-              >
-                {title}
-              </Typography>
-              <Button onClick={handleEdit}>
-                <EditIcon />
-              </Button>
-              <Button onClick={handleDelete}>
-                <DeleteIcon sx={{ color: "red" }} />
-              </Button>
+            <Avatar aria-label="recipe">{avatar}</Avatar>
+            <Typography gutterBottom variant="h6" component="div" sx={{ flexGrow: 1, marginLeft: 2 }}>
+              {title}
+            </Typography>
+            <Button onClick={handleEdit} sx={{ minWidth: "auto" }}>
+              <EditIcon />
+            </Button>
+            <Button onClick={handleDelete} sx={{ minWidth: "auto" }}>
+              <DeleteIcon sx={{ color: "red" }} />
+            </Button>
           </Box>
           <Typography variant="body2" color="text.secondary">
             {authorname}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            {view} views <sup>.</sup> {timestamp} ago
+            {view} views &bull; {timestamp} ago
           </Typography>
         </CardContent>
       </Card>

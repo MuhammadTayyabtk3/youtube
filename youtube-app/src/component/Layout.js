@@ -1,6 +1,5 @@
 import React from 'react'
 import Header from './Header'
-import Footer from './Footer'
 import Catagory from './Catagory'
 import Cardcontainer from './Cardcontainer'
 
@@ -13,7 +12,6 @@ const Layout = ({Childern}) => {
     <div>
         {Childern}
     </div>
-    {/* <Footer/> */}
     </>
   )
 }
